@@ -1,0 +1,16 @@
+# Dependance alignees sur pyproject.toml + fastmcp (serveur MCP)
+streamlit>=1.39
+langgraph>=0.2
+pandas>=2.2
+numpy>=1.26
+scipy>=1.13
+plotly>=5.24
+sqlalchemy>=2.0
+psycopg[binary]>=3.2
+python-dotenv>=1.0
+mistralai>=1.2
+quantlib>=1.44
+fastmcp>=2.10
+httpx>=0.27
+pytest>=8.0
+ruff>=0.6

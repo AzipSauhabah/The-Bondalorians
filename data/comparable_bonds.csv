@@ -1,0 +1,13 @@
+bond_id,issuer,issuer_group,sector,currency,rating,seniority,coupon_pct,maturity_years,price_clean,callable,esg_label,liquidity_score
+BOND001,ALPHA_ENERGY,ALPHA,Utilities,EUR,BBB,Senior,3.10,3.0,99.15,false,false,0.90
+BOND002,ALPHA_ENERGY,ALPHA,Utilities,EUR,BBB,Senior,3.60,5.0,98.40,false,false,0.86
+BOND003,BETA_POWER,BETA,Utilities,EUR,BBB,Senior,3.25,4.0,98.90,false,true,0.82
+BOND004,GAMMA_GRID,GAMMA,Utilities,EUR,A,Senior,2.80,5.5,97.80,false,false,0.78
+BOND005,DELTA_INFRA,DELTA,Infrastructure,EUR,BBB,Senior,3.75,6.0,99.20,false,true,0.74
+BOND006,ALPHA_ENERGY,ALPHA,Utilities,EUR,BBB,Subordinated,4.20,5.0,100.10,false,false,0.70
+BOND007,EPSILON_ENERGY,EPSILON,Utilities,EUR,BB,Senior,4.50,6.5,99.00,false,false,0.76
+BOND008,ZETA_POWER,ZETA,Utilities,EUR,A,Senior,2.95,3.5,99.40,false,true,0.88
+BOND009,ETA_TRANSIT,ETA,Transport,EUR,BBB,Senior,3.80,5.0,99.10,true,false,0.65
+BOND010,THETA_ENERGY,THETA,Utilities,EUR,BBB,Senior,3.45,7.0,97.60,false,false,0.80
+BOND011,IOTA_BANK,IOTA,Banking,EUR,BBB,Senior,3.90,5.0,99.30,false,false,0.91
+BOND012,KAPPA_UTIL,KAPPA,Utilities,EUR,BBB,Senior,3.30,2.0,99.00,false,false,0.93

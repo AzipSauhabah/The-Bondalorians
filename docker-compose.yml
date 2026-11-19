@@ -1,0 +1,41 @@
+# Demonstration complete (VM ou local) : docker compose up --build
+#   gui        : http://localhost:8501  (Streamlit : Home + page Agent/File)
+#   mcp-server : http://localhost:8000/mcp  (outils quantitatifs exposes)
+#   worker     : consomme la file de valorisations (SQLite data/jobs.db)
+services:
+  gui:
+    build: .
+    environment:
+      - MISTRAL_API_KEY=${MISTRAL_API_KEY}
+      - MCP_URL=http://mcp-server:8000/mcp
+    ports: ["8501:8501"]
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      mcp-server:
+        condition: service_healthy
+
+  mcp-server:
+    build: .
+    command: python -m bondalorians.mcp_server.server
+    ports: ["8000:8000"]
+    volumes:
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import httpx,os; httpx.post('http://localhost:8000/mcp', json={'jsonrpc':'2.0','id':1,'method':'ping'}, timeout=5)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  worker:
+    build: .
+    command: python -m bondalorians.worker.main
+    environment:
+      - MISTRAL_API_KEY=${MISTRAL_API_KEY}
+      - MCP_URL=http://mcp-server:8000/mcp
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      mcp-server:
+        condition: service_healthy
+    restart: unless-stopped
